@@ -15,6 +15,7 @@ export default function SearchResults({params}) {
 		getGifs({keyword}).then((gifs) => setGifs(gifs)); // getGifs es una funcion que retorna una promesa, por lo tanto, podemos usar el metodo then para obtener el resultado de la promesa, y luego, con la funcion setGifs, podemos cambiar el valor del estado gifs, y asi, renderizar los gifs en el componente. En la promesa del .then ponemos como parametro lo que recibimos que son los gifs, y luego, con la funcion setGifs, cambiamos el valor del estado gifs, y asi, renderizamos los gifs en el componente.
 	}, [keyword]);
   */
+
 	return (
 		<>
 			<ListOfGifs gifs={gifs} />

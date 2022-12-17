@@ -1,11 +1,17 @@
-import { useEffect, useState } from "react";
-import getGifs from "../services/getGifs";
+import { useContext, useEffect, useState } from 'react';
+import getGifs from '../services/getGifs';
+import GifsContext from '../context/GifsContext';
 
-export function useGifs({keyword}) {
-	const [gifs, setGifs] = useState([]);
+export function useGifs({ keyword } = { keyword: null }) {
+	const { gifs, setGifs } = useContext(GifsContext);
 	useEffect(() => {
-		getGifs({keyword}).then((gifs) => setGifs(gifs));
-	}, [keyword]);
+		const keywordToUse = keyword || localStorage.getItem('lastKeyword');
 
-  return gifs;
+		getGifs({ keyword: keywordToUse }).then(gifs => {
+			setGifs(gifs);
+			localStorage.setItem('lastKeyword', keyword);
+		});
+	}, [keyword, setGifs]);
+
+	return gifs;
 }

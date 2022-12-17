@@ -1,5 +1,5 @@
 const apiKey = 'mZfVOgmyHUVjX00sYtPSoVxaiBbBBSZT&q';
-const getGifs = async ({keyword = 'travis scott'} = {}) => {
+const getGifs = async ({keyword} = {}) => {
 	const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}=${keyword}&limit=10&offset=0&rating=g&lang=en`;
 	const response = await fetch(apiURL);
 	const {data} = await response.json();
