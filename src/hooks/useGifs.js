@@ -3,7 +3,7 @@ import getGifs from '../services/getGifs';
 import GifsContext from '../context/GifsContext';
 
 export function useGifs({ keyword } = { keyword: null }) {
-	const { gifs, setGifs } = useContext(GifsContext);
+	const { gifs, setGifs } = useContext(GifsContext); // se obtiene el estado de gifs y su setter setGifs desde el contexto de GifsContext, esto ya seria el estado global de gifs
 	useEffect(() => {
 		const keywordToUse = keyword || localStorage.getItem('lastKeyword');
 
