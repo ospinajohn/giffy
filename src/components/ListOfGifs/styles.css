@@ -1,32 +1,33 @@
 :root {
-  /* esta opcion es para que se vea en 2 columnas desde 0px */ 
-	--resolts-column: 2; 
+	/* esta opcion es para que se vea en 2 columnas desde 0px */
+	--resolts-column: 2;
 }
 
 .ListOfGifs {
 	column-count: var(--resolts-column);
 	column-gap: 1rem; /* es para que haya un espacio entre las columnas */
+	min-height: 100vh;
 }
 
 .ListOfGifs-item {
 	-wbkit-column-break-inside: avoid; /* es para que no se rompa la columna */
-  page-break-inside: avoid; 
-  break-inside: avoid;
-  background-color: #eee; 
-  display: inline-block; 
-  width: 100%; /* es para que tenga el ancho de la columna */
+	page-break-inside: avoid;
+	break-inside: avoid;
+	background-color: #eee;
+	display: inline-block;
+	width: 100%; /* es para que tenga el ancho de la columna */
 }
 
 @media (min-width: 600px) {
-  /* aqui hacemos  que se vea en 3 columnas desde 600px */
-  :root {
-    --resolts-column: 3;
-  }
+	/* aqui hacemos  que se vea en 3 columnas desde 600px */
+	:root {
+		--resolts-column: 3;
+	}
 }
 
 @media (min-width: 900px) {
-  /* aqui hacemos  que se vea en 4 columnas desde 900px */
-  :root {
-    --resolts-column: 4;
-  }
+	/* aqui hacemos  que se vea en 4 columnas desde 900px */
+	:root {
+		--resolts-column: 4;
+	}
 }
