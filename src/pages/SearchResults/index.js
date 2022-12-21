@@ -4,7 +4,7 @@ import { useGifs } from 'hooks/useGifs';
 
 export default function SearchResults({ params }) {
 	const { keyword } = params;
-	const gifs = useGifs({ keyword });
+	const {gifs,setPage} = useGifs({ keyword });
 	/*
 	const [gifs, setGifs] = useState([]);
 	// que es un estado en react, es un valor que puede cambiar en el tiempo, es decir, que puede cambiar de valor, por ejemplo, un contador, un input, un checkbox, etc. en pocas palabras, es un valor es un valor que puede cambiar en el tiempo. USESTATE es una funcion que nos permite crear un estado, y que nos devuelve un array con dos elementos, el primer elemento es el valor del estado, y el segundo elemento es una funcion que nos permite cambiar el valor del estado. lo que va dentro de los parentesis de useState es el valor inicial del estado. useEffect es
@@ -15,11 +15,13 @@ export default function SearchResults({ params }) {
 		getGifs({keyword}).then((gifs) => setGifs(gifs)); // getGifs es una funcion que retorna una promesa, por lo tanto, podemos usar el metodo then para obtener el resultado de la promesa, y luego, con la funcion setGifs, podemos cambiar el valor del estado gifs, y asi, renderizar los gifs en el componente. En la promesa del .then ponemos como parametro lo que recibimos que son los gifs, y luego, con la funcion setGifs, cambiamos el valor del estado gifs, y asi, renderizamos los gifs en el componente.
 	}, [keyword]);
   */
+	const handleNextPage = () => setPage(prevPage => prevPage + 1);
 
 	return (
 		<>
 			<h3 className='App-title'>{decodeURI(keyword)}</h3>
 			<ListOfGifs gifs={gifs} />
+			<button onClick={handleNextPage}>Get next page</button>
 		</>
 	);
 }
