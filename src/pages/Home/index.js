@@ -10,24 +10,14 @@ import { Helmet } from 'react-helmet';
 const POPULAR_GIFS = ['Matrix', 'Rick and Morty', 'Programacion'];
 
 export default function Home() {
-	const [path, pushLocation] = useLocation();
-
 	const { gifs } = useGifs();
-
-	const handleSubmit = useCallback(
-		({ keyword }) => {
-			// navegar a otra ruta
-			pushLocation(`/search/${keyword}`);
-		},
-		[pushLocation]
-	);
 
 	return (
 		<>
 			<Helmet>
 				<title>Home | Giffy</title>
 			</Helmet>
-			<SearchForm onSubmit={handleSubmit} />
+			<SearchForm />
 			<div className='App-main'>
 				<div className='App-results'>
 					<h3 className='App-title'>Ultima busqueda</h3>
