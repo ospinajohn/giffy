@@ -5,7 +5,6 @@ import useForm from './hook';
 
 const RATINGS = ['g', 'pg', 'pg-13', 'r'];
 
-
 export default function SearchForm({
 	initialKeyword = '',
 	initialRating = 'g',
