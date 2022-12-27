@@ -1,17 +1,24 @@
 import css from './SearchForm.module.css';
-import Button from 'components/Button';
-import React, { useState } from 'react';
+import React from 'react';
 import { useLocation } from 'wouter';
+import useForm from './hook';
 
 const RATINGS = ['g', 'pg', 'pg-13', 'r'];
 
-export default function SearchForm() {
-	const [keyword, setKeyword] = useState('');
-	const [rating, setRating] = useState(RATINGS[0]);
+
+export default function SearchForm({
+	initialKeyword = '',
+	initialRating = 'g',
+}) {
 	const [_, pushLocation] = useLocation();
 
+	const { keyword, rating, updateKeyword, updateRating } = useForm({
+		initialKeyword,
+		initialRating,
+	});
+
 	const handleChange = evt => {
-		setKeyword(evt.target.value);
+		updateKeyword(evt.target.value);
 	};
 
 	const handleSubmit = evt => {
@@ -20,8 +27,8 @@ export default function SearchForm() {
 	};
 
 	const handleChangeRating = evt => {
-		setRating(evt.target.value);
-	}
+		updateRating(evt.target.value);
+	};
 
 	return (
 		<form onSubmit={handleSubmit} className={css['c-search']}>

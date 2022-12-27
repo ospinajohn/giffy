@@ -1,5 +1,5 @@
 import { API_KEY, API_URL } from 'services/setting';
-const getGifs = async ({ limit = 5, page = 0, keyword = 'morty', rating } = {}) => {
+const getGifs = async ({ limit = 5, page = 0, keyword = 'morty', rating = 'g' } = {}) => {
 	const apiURL = `${API_URL}/gifs/search?api_key=${API_KEY}=${keyword}&limit=${limit}&offset=${
 		page * limit
 	}&rating=${rating}&lang=en`;
